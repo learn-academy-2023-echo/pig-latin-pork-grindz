@@ -5,9 +5,9 @@ import butcherPigImage from "./assets/butcherPig.jpeg"
 const App = () => {
   // ACTION ITEM: to make the development process easier there are some preassigned words in the input field, when you are ready for your full user experience delete the test words passed to useState and pass an empty string
   const [userInput, setUserInput] = useState(
-    "apple through queen squeal fry fluent"
+    "cook hair clean like"
   )
-  const [inputTranslated, setInputTranslated] = useState("")
+  const [inputTranslated, setInputTranslated] = useState(" ")
 
   // ACTION ITEM: the "myPigLatinCodeHere" function is where you will put your logic to translate the sentence entered by the user into Pig Latin
   const myPigLatinCodeHere = () => {
@@ -30,12 +30,37 @@ const App = () => {
         )
       })
       console.log("vowelsArray:", vowelsArray)
-
+// Create a variable and for loop. for loop will return variable.
+// let consonaNts = " " 
+// for (let i = 0; i < eachword.length; i++)
       // ACTION ITEM: your Pig Latin logic goes here!
 
-      // ACTION ITEM: this return will be the output of your Pig Latin'd code
-      return eachWord
-    })
+      // ACTION ITEM: this return will be the output of your Pig Latin'd code 
+      if (vowelsArray.includes(eachWord[0])){
+        return eachWord + 'ay'
+      } else { 
+        let consonaNts = "" 
+        for (let i = 0; i < eachWord.length; i++){
+
+        if (!vowelsArray.includes(eachWord[i].toLowerCase())) {
+        consonaNts += eachWord[i]
+        console.log(consonaNts)
+        } else if (!vowelsArray.length && eachWord.includes('y')){ 
+          let yIndex = eachWord.indexOf('y').slice('y')
+        return eachWord.slice(yIndex).concat(consonaNts)
+        //sometimes y( moving y to the front and added ay to the rear)
+     // !vowelsArray .length  (no vowels and y) &&
+
+        // } else if { //qu (occurance of qu)
+         
+        
+          
+      }
+      return eachWord.slice(consonaNts.length) + consonaNts + 'ay'
+  
+           }   }
+    }
+    )
 
     // NO MODIFICATION NEEDED: once the code has been modified it gets joined from an array back to a string
     const translatedWords = translatedWordsArray.join(" ")
@@ -47,8 +72,8 @@ const App = () => {
 
   // ACTION ITEM: this method restarts the game by setting the original state, when you are ready for your full user experience delete the test words in setUserInput and pass an empty string
   const restartGame = () => {
-    setUserInput("apple through queen squeal fry fluent")
-    setInputTranslated("")
+    setUserInput(" ")
+    setInputTranslated(" ")
   }
 
   // NO MODIFICATION NEEDED: this method prevents React from refreshing the page unnecessarily
@@ -67,7 +92,7 @@ const App = () => {
       <div className="body-container">
         <h1>Pig Latin Translator</h1>
         <img
-          src={butcherPigImage}
+          src="https://upload.wikimedia.org/wikipedia/commons/0/0d/Pork-Rinds.jpg"
           alt="pig with butcher cut names in pig latin"
           className="butcher-pig-image"
         />
@@ -86,9 +111,14 @@ const App = () => {
         </div>
         <p>{inputTranslated}</p>
       </div>
-      <footer>&copy; 2023 | Coded by: Your Names Here!</footer>
+      <footer>&copy; 2023 | Coded by: Mike and Raquel!</footer>
     </div>
   )
 }
 
 export default App
+
+//separate words into individual strings, using .split() method.
+//.filter() 
+//. if statement for "qu"
+//if string begins with === vowel .push yay
