@@ -36,25 +36,31 @@ const App = () => {
       // ACTION ITEM: your Pig Latin logic goes here!
 
       // ACTION ITEM: this return will be the output of your Pig Latin'd code 
-      if (vowelsArray.includes(eachWord[0].toLowerCase())){
+      if (vowelsArray.includes(eachWord[0])){
         return eachWord + 'ay'
-      } else if { //sometimes y
-     // !vowelsArray .length  (no vowels and y) &&
-        } else if { //qu (occurance of qu)
-         
-        } else {
-          let consonaNts = "" 
+      } else { 
+        let consonaNts = "" 
         for (let i = 0; i < eachWord.length; i++){
 
         if (!vowelsArray.includes(eachWord[i].toLowerCase())) {
         consonaNts += eachWord[i]
+        console.log(consonaNts)
+        } else if (!vowelsArray.length && eachWord.includes('y')){ 
+          let yIndex = eachWord.indexOf('y').slice('y')
+        return eachWord.slice(yIndex).concat(consonaNts)
+        //sometimes y( moving y to the front and added ay to the rear)
+     // !vowelsArray .length  (no vowels and y) &&
+
+        // } else if { //qu (occurance of qu)
+         
         
+          
       }
       return eachWord.slice(consonaNts.length) + consonaNts + 'ay'
   
            }   }
-    })
-   
+    }
+    )
 
     // NO MODIFICATION NEEDED: once the code has been modified it gets joined from an array back to a string
     const translatedWords = translatedWordsArray.join(" ")
@@ -86,7 +92,7 @@ const App = () => {
       <div className="body-container">
         <h1>Pig Latin Translator</h1>
         <img
-          src={butcherPigImage}
+          src="https://upload.wikimedia.org/wikipedia/commons/0/0d/Pork-Rinds.jpg"
           alt="pig with butcher cut names in pig latin"
           className="butcher-pig-image"
         />
